@@ -1,0 +1,28 @@
+{
+  "name": "ccd-mongo",
+  "version": "1.0.1",
+  "description": "Mongo service base class for CCD based on mongoose",
+  "main": "ccd-mongo.js",
+  "types": "ccd-mongo.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codechem/ccd-mongo"
+  },
+  "keywords": [
+    "ccd",
+    "typescript",
+    "mongo",
+    "mongoose",
+    "db",
+    "service",
+    "node.js"
+  ],
+  "dependencies": {
+    "ccd":">=1.0.15"
+  },
+  "author": "Code Chemistry",
+  "license": "ISC",
+  "devDependencies": {
+    "tslint": "^3.15.1"
+  }
+}

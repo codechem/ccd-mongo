@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "declaration": true,
+        "sourceMap": true,
+        "experimentalDecorators": true
+    },
+    "include":[
+        "*.ts"
+    ],
+    "files": [
+        "ccd-mongo.ts",
+        "./typings/index.d.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "typings"
+    ]
+}
