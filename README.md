@@ -27,9 +27,11 @@ interface User extends mongoose.Document{
 }
 
 class UserCtrl extends CCServiceController<User>{
-    @get('/:username')    
-    byUsername(req, res){
-        return this.model.findOne({Username:username});
+    @post('/login')    
+    login(req, res){
+        //yes, that simple, 
+        //model is regulat mongoose model
+        return this.model.findOne(req.body); 
     }
 }
 //the mongoose model needs to be defined
