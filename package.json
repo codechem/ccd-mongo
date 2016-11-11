@@ -1,6 +1,6 @@
 {
   "name": "ccd-mongo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Mongo service base class for CCD based on mongoose",
   "main": "ccd-mongo.js",
   "types": "ccd-mongo.d.ts",
