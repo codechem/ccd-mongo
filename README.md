@@ -13,41 +13,34 @@
 </a>
 </div>
 
-## CCD-NG2 
+## CCD-MONGO
 
-Provides ```@ngGenSvc``` decorator that generates angular2 services for a given ```CCController```
-### Example
-```typescript 
-@ngSvcGen('./client/svc', true)
-class HelloCtrl extends CCController{
-    @get('/hello/:name')    
-    helloWorld(req, res){
-        return `hello ${req.params.name}`
-    }
+Mongoose based service and CCD controller
+Also implements the basic CRUD methods
 
-    @post('/:id')    
-    doSomething(req, res){
-        return ....
-    }
-    ...
-}
-```
-
-### Output in ```./client/svc```:
+### Example CCContrllerService
 ```typescript
-import { Injectable } from '@angular/core';
-import { SimpleRestService } from 'ccNgRest';
+...
+interface User extends mongoose.Document{
+    Username:string
+}
 
-@Injectable()
-export class HelloCtrlSvc{
-    constructor(private rest: SimpleRestService){}
-
-    helloWorld(name){
-        return this.rest.get('/hello/'+name);
-    }
-
-    doSomething(id, payload){
-        return this.rest.post('/'+id, payload);
+class UserCtrl extends CCServiceController<User>{
+    @get('/:username')    
+    byUsername(req, res){
+        return this.model.findOne({Username:username});
     }
 }
+//the mongoose model needs to be defined
+mongoose.Model<User>('User', new mongoose.Schema({
+    Username:String
+});
+
+app.use('/', new UserCtrl('User').router);
+app.listen(3000);
 ```
+
+### Note
+
+If you like to be more structured and have the db methods in a separate class then you can use the ```CCService<T>``` class for that.
+
